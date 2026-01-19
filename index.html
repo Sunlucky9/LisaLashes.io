@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
+    <meta charset="UTF-8">
+    <title>Lisa’s Lashes | Mobile Beauty Salon Dublin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
         body {
             margin: 0;
@@ -11,37 +14,21 @@
             line-height: 1.6;
         }
 
-        /* Header with logo */
+        /* HEADER (logo only) */
         header {
             background-color: #f3a7c0;
-            padding: 20px;
+            padding: 25px;
             display: flex;
-            align-items: center;
             justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
+            align-items: center;
         }
 
         header img {
-            height: 160px; /* logo size */
+            height: 170px; /* larger logo */
             width: auto;
         }
 
-        header .title {
-            text-align: center;
-            color: white;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.2rem;
-        }
-
-        header p {
-            margin: 5px 0 0;
-        }
-
-        /* Navigation */
+        /* NAVIGATION */
         nav {
             background-color: #e06a9d;
             text-align: center;
@@ -53,9 +40,10 @@
             margin: 0 18px;
             text-decoration: none;
             font-weight: bold;
+            font-size: 1.05rem;
         }
 
-        /* Hero image */
+        /* HERO IMAGE */
         .hero {
             width: 100%;
             height: 450px;
@@ -65,11 +53,11 @@
         .hero img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* crops nicely */
+            object-fit: cover;
             display: block;
         }
 
-        /* Sections */
+        /* CONTENT SECTIONS */
         section {
             max-width: 1000px;
             margin: auto;
@@ -91,7 +79,7 @@
             padding: 8px 0;
         }
 
-        /* CTA */
+        /* CALL TO ACTION */
         .cta {
             background-color: #f9f9f9;
         }
@@ -99,7 +87,7 @@
         .cta a {
             display: inline-block;
             margin-top: 20px;
-            padding: 14px 30px;
+            padding: 14px 32px;
             background-color: #e06a9d;
             color: white;
             text-decoration: none;
@@ -111,7 +99,7 @@
             background-color: #c95685;
         }
 
-        /* Footer */
+        /* FOOTER */
         footer {
             background-color: #333;
             color: white;
@@ -119,55 +107,67 @@
             padding: 20px;
             font-size: 0.9rem;
         }
+
+        /* MOBILE LOGO SIZE */
+        @media (max-width: 600px) {
+            header img {
+                height: 120px;
+            }
+        }
     </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <header>
-    <!-- LOGO -->
     <img src="images/Picture1.png" alt="Lisa’s Lashes Logo">
-
-    <div class="title">
-        <h1>Lisa’s Lashes</h1>
-        <p>Mobile Beauty Salon • Dublin</p>
-    </div>
 </header>
 
+<!-- NAV -->
 <nav>
     <a href="index.html">Home</a>
     <a href="services.html">Our Services</a>
 </nav>
 
-<!-- BIG MAIN IMAGE -->
+<!-- HERO IMAGE -->
 <div class="hero">
     <img src="images/Outsidevan.png" alt="Lisa’s Lashes mobile beauty van">
 </div>
 
+<!-- ABOUT -->
 <section>
     <h2>About Lisa’s Lashes</h2>
     <p>
         Lisa’s Lashes is a professional mobile beauty salon based in Dublin,
-        offering high-quality lash services in the comfort of your own home.
-        We combine convenience with luxury to deliver stunning results.
+        offering high-quality lash and beauty services in the comfort of your own home.
+        We combine luxury, convenience, and expert care to help you look and feel your best.
+    </p>
+    <p>
+        Whether you’re preparing for a special occasion or maintaining your everyday look,
+        our mobile service brings salon-quality treatments directly to you.
     </p>
 </section>
 
+<!-- WHY CHOOSE US -->
 <section>
     <h2>Why Choose Us?</h2>
     <ul>
-        <li>✔ Fully mobile service across Dublin</li>
-        <li>✔ Premium lash products</li>
-        <li>✔ Professional and hygienic service</li>
+        <li>✔ Fully mobile beauty service across Dublin</li>
+        <li>✔ Premium professional products</li>
+        <li>✔ Clean, safe & hygienic treatments</li>
+        <li>✔ Personalised consultations</li>
         <li>✔ Relaxing experience at home</li>
     </ul>
 </section>
 
+<!-- CTA -->
 <section class="cta">
     <h2>Book Your Appointment</h2>
-    <p>Get beautiful lashes without leaving your home.</p>
+    <p>Enjoy beautiful lashes without leaving your home.</p>
     <a href="services.html">View Our Services</a>
 </section>
 
+<!-- FOOTER -->
 <footer>
     © 2026 Lisa’s Lashes | Mobile Beauty Salon Dublin
 </footer>

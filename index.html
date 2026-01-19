@@ -9,33 +9,46 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #ffffff;
             color: #333;
+            background-color: #fff;
             line-height: 1.6;
         }
 
-        /* Header */
+        /* Header with logo */
         header {
             background-color: #f3a7c0;
-            color: white;
-            padding: 60px 20px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        header img {
+            height: 70px; /* logo size */
+            width: auto;
+        }
+
+        header .title {
             text-align: center;
+            color: white;
         }
 
         header h1 {
-            font-size: 2.6rem;
-            margin-bottom: 10px;
+            margin: 0;
+            font-size: 2.2rem;
         }
 
         header p {
-            font-size: 1.2rem;
+            margin: 5px 0 0;
         }
 
         /* Navigation */
         nav {
             background-color: #e06a9d;
-            padding: 15px;
             text-align: center;
+            padding: 15px;
         }
 
         nav a {
@@ -43,20 +56,19 @@
             margin: 0 18px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.05rem;
         }
 
         /* Hero image */
         .hero {
             width: 100%;
-            max-height: 450px;
+            height: 450px;
             overflow: hidden;
         }
 
         .hero img {
             width: 100%;
-            height: 450px;
-            object-fit: cover;
+            height: 100%;
+            object-fit: cover; /* crops nicely */
             display: block;
         }
 
@@ -65,34 +77,26 @@
             max-width: 1000px;
             margin: auto;
             padding: 50px 20px;
+            text-align: center;
         }
 
         section h2 {
             color: #e06a9d;
-            text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
-        .about,
-        .why {
-            text-align: center;
-        }
-
-        .why ul {
+        ul {
             list-style: none;
             padding: 0;
         }
 
-        .why li {
+        ul li {
             padding: 8px 0;
-            font-size: 1.05rem;
         }
 
-        /* Call to action */
+        /* CTA */
         .cta {
             background-color: #f9f9f9;
-            text-align: center;
-            padding: 50px 20px;
         }
 
         .cta a {
@@ -123,8 +127,13 @@
 <body>
 
 <header>
-    <h1>Lisa’s Lashes</h1>
-    <p>Professional Mobile Lash Services Across Dublin</p>
+    <!-- LOGO -->
+    <img src="images/Picture1.png" alt="Lisa’s Lashes Logo">
+
+    <div class="title">
+        <h1>Lisa’s Lashes</h1>
+        <p>Mobile Beauty Salon • Dublin</p>
+    </div>
 </header>
 
 <nav>
@@ -132,10 +141,40 @@
     <a href="services.html">Our Services</a>
 </nav>
 
-<!-- HERO IMAGE -->
+<!-- BIG MAIN IMAGE -->
 <div class="hero">
-    <img src="images/hero-lashes.jpg" alt="Beautiful lash extensions">
+    <img src="images/Outsidevan.png" alt="Lisa’s Lashes mobile beauty van">
 </div>
 
-<section class="about">
-    <
+<section>
+    <h2>About Lisa’s Lashes</h2>
+    <p>
+        Lisa’s Lashes is a professional mobile beauty salon based in Dublin,
+        offering high-quality lash services in the comfort of your own home.
+        We combine convenience with luxury to deliver stunning results.
+    </p>
+</section>
+
+<section>
+    <h2>Why Choose Us?</h2>
+    <ul>
+        <li>✔ Fully mobile service across Dublin</li>
+        <li>✔ Premium lash products</li>
+        <li>✔ Professional and hygienic service</li>
+        <li>✔ Relaxing experience at home</li>
+    </ul>
+</section>
+
+<section class="cta">
+    <h2>Book Your Appointment</h2>
+    <p>Get beautiful lashes without leaving your home.</p>
+    <a href="services.html">View Our Services</a>
+</section>
+
+<footer>
+    © 2026 Lisa’s Lashes | Mobile Beauty Salon Dublin
+</footer>
+
+</body>
+</html>
+

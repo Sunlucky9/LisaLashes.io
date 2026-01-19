@@ -55,8 +55,8 @@
     }
 
     /* Left column: image */
-    .content .image-column {
-        flex: 1 1 300px; /* minimum width 300px */
+    .image-column {
+        flex: 1 1 300px;
         display: flex;
         justify-content: center;
         align-items: flex-start;
@@ -69,9 +69,9 @@
         box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
-    /* Right column: services / price list */
-    .content .services-column {
-        flex: 2 1 500px; /* bigger column */
+    /* Right column: services */
+    .services-column {
+        flex: 2 1 500px;
     }
 
     .services-column h2 {
@@ -80,30 +80,22 @@
     }
 
     .services-column h3 {
-        margin: 20px 0 5px;
+        margin: 25px 0 10px;
         color: #e06a9d;
     }
 
-    .services-column table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-bottom: 30px;
-    }
-
-    .services-column table th,
-    .services-column table td {
-        padding: 8px 10px;
-        text-align: left;
-    }
-
-    .services-column table th {
-        color: #e06a9d;
-        font-weight: bold;
-        border-bottom: 2px solid #e06a9d;
-    }
-
-    .services-column table td {
+    /* Each service row */
+    .service-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0;
         border-bottom: 1px solid #ddd;
+    }
+
+    .service-row small {
+        display: block;
+        font-size: 0.85rem;
+        color: #666;
     }
 
     footer {
@@ -154,38 +146,29 @@
         <h2>Price List</h2>
 
         <h3>Lash Extensions</h3>
-        <table>
-            <tr><th>Service</th><th>Price</th></tr>
-            <tr><td>Classic</td><td>€50</td></tr>
-            <tr><td>Hybrid</td><td>€55</td></tr>
-            <tr><td>YY Lash</td><td>€55</td></tr>
-            <tr><td>Angel Lash</td><td>€55</td></tr>
-            <tr><td>YY & Volume mix</td><td>€60</td></tr>
-            <tr><td>Light Volume</td><td>€60</td></tr>
-            <tr><td>Volume</td><td>€65</td></tr>
-        </table>
+        <div class="service-row"><span>Classic</span><span>€50</span></div>
+        <div class="service-row"><span>Hybrid</span><span>€55</span></div>
+        <div class="service-row"><span>YY Lash</span><span>€55</span></div>
+        <div class="service-row"><span>Angel Lash</span><span>€55</span></div>
+        <div class="service-row"><span>YY & Volume mix</span><span>€60</span></div>
+        <div class="service-row"><span>Light Volume</span><span>€60</span></div>
+        <div class="service-row"><span>Volume</span><span>€65</span></div>
 
         <h3>Lash Lift</h3>
-        <table>
-            <tr><th>Service</th><th>Price</th></tr>
-            <tr><td>Lash Lift</td><td>€40</td></tr>
-            <tr><td>Lash Lift with Tint</td><td>€45</td></tr>
-        </table>
+        <div class="service-row"><span>Lash Lift</span><span>€40</span></div>
+        <div class="service-row"><span>Lash Lift with Tint</span><span>€45</span></div>
 
         <h3>Brows</h3>
-        <table>
-            <tr><th>Service</th><th>Price</th></tr>
-            <tr><td>Brow Wax or Tint</td><td>€20</td></tr>
-            <tr><td>HD Brows</td><td>€40</td></tr>
-            <tr><td>Brow Lamination</td><td>€45</td></tr>
-            <tr><td>Brow Lamination with Tint</td><td>€50</td></tr>
-        </table>
+        <div class="service-row"><span>Brow Wax or Tint</span><span>€20</span></div>
+        <div class="service-row"><span>HD Brows</span><span>€40</span></div>
+        <div class="service-row"><span>Brow Lamination</span><span>€45</span></div>
+        <div class="service-row"><span>Brow Lamination with Tint</span><span>€50</span></div>
 
         <h3>Products</h3>
-        <table>
-            <tr><th>Product</th><th>Price</th></tr>
-            <tr><td>Lash Shampoo Set<br><small>Includes: Lash Shampoo, Lash Shampoo Brush, Travel Spoolie, Regular Spoolie</small></td><td>€20</td></tr>
-        </table>
+        <div class="service-row">
+            <span>Lash Shampoo Set <small>Includes: Lash Shampoo, Lash Shampoo Brush, Travel Spoolie, Regular Spoolie</small></span>
+            <span>€20</span>
+        </div>
 
     </div>
 

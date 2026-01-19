@@ -1,106 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Our Services | Lisa’s Lashes</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Our Services | Lisa’s Lashes</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            color: #333;
-            background-color: #fff;
-            line-height: 1.6;
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        color: #333;
+        background-color: #fff;
+        line-height: 1.6;
+    }
+
+    header {
+        background-color: #f3a7c0;
+        color: white;
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 2.2rem;
+    }
+
+    header p {
+        margin: 5px 0 0;
+    }
+
+    nav {
+        background-color: #e06a9d;
+        text-align: center;
+        padding: 15px;
+    }
+
+    nav a {
+        color: white;
+        margin: 0 18px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    /* Two-column layout */
+    .content {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 1100px;
+        margin: 50px auto;
+        gap: 30px;
+        padding: 0 20px;
+        align-items: flex-start;
+    }
+
+    /* Left column: image */
+    .content .image-column {
+        flex: 1 1 300px; /* minimum width 300px */
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .image-column img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Right column: services / price list */
+    .content .services-column {
+        flex: 2 1 500px; /* bigger column */
+    }
+
+    .services-column h2 {
+        color: #e06a9d;
+        margin-bottom: 15px;
+    }
+
+    .services-column h3 {
+        margin: 20px 0 5px;
+        color: #e06a9d;
+    }
+
+    .services-column table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 30px;
+    }
+
+    .services-column table th,
+    .services-column table td {
+        padding: 8px 10px;
+        text-align: left;
+    }
+
+    .services-column table th {
+        color: #e06a9d;
+        font-weight: bold;
+        border-bottom: 2px solid #e06a9d;
+    }
+
+    .services-column table td {
+        border-bottom: 1px solid #ddd;
+    }
+
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        font-size: 0.9rem;
+    }
+
+    @media (max-width: 800px) {
+        .content {
+            flex-direction: column;
         }
 
-        header {
-            background-color: #f3a7c0;
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
+        .image-column, .services-column {
+            flex: 1 1 100%;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.2rem;
+        .image-column {
+            justify-content: center;
         }
-
-        header p {
-            margin: 5px 0 0;
-        }
-
-        nav {
-            background-color: #e06a9d;
-            text-align: center;
-            padding: 15px;
-        }
-
-        nav a {
-            color: white;
-            margin: 0 18px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        /* Main hero image */
-        .main-image {
-            width: 100%;
-            overflow: hidden;
-        }
-
-        .main-image img {
-    width: 100%;
-    height: auto;   /* maintain aspect ratio */
-    display: block;
-}
-
-        /* Services grid */
-        .services {
-            max-width: 1000px;
-            margin: 50px auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            padding: 0 20px;
-        }
-
-        .service-box {
-            background: #f9f9f9;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            text-align: center;
-        }
-
-        .service-box img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-
-        .service-box h3 {
-            color: #e06a9d;
-            margin: 15px 0 5px;
-        }
-
-        .service-box p {
-            padding: 0 15px 20px;
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            font-size: 0.9rem;
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
 
 <header>
-    <h1>Our Services</h1>
+    <h1>Lisa’s Lashes</h1>
     <p>Professional Mobile Beauty Services in Dublin</p>
 </header>
 
@@ -109,48 +141,52 @@
     <a href="services.html">Our Services</a>
 </nav>
 
-<!-- BIG MAIN IMAGE -->
-<div class="main-image">
-    <img src="images/Insidevan.png" alt="Inside Lisa’s mobile beauty van">
-</div>
+<div class="content">
 
-<!-- Services grid -->
-<div class="services">
-
-    <div class="service-box">
-        <img src="images/classic-lashes.jpg" alt="Classic Lashes">
-        <h3>Classic Lashes</h3>
-        <p>Natural-looking lash extensions applied one-to-one for an elegant everyday look.</p>
+    <!-- Left column: image -->
+    <div class="image-column">
+        <img src="images/Insidevan.png" alt="Inside Lisa’s mobile beauty van">
     </div>
 
-    <div class="service-box">
-        <img src="images/hybrid-lashes.jpg" alt="Hybrid Lashes">
-        <h3>Hybrid Lashes</h3>
-        <p>Combination of classic and volume lashes for added texture and fullness.</p>
-    </div>
+    <!-- Right column: services -->
+    <div class="services-column">
 
-    <div class="service-box">
-        <img src="images/volume-lashes.jpg" alt="Volume Lashes">
-        <h3>Volume Lashes</h3>
-        <p>Soft, lightweight fans for a bold and glamorous lash look.</p>
-    </div>
+        <h2>Price List</h2>
 
-    <div class="service-box">
-        <img src="images/lash-infill.jpg" alt="Lash Infill">
-        <h3>Lash Infills</h3>
-        <p>Keep your lashes looking fresh and full with regular infill appointments.</p>
-    </div>
+        <h3>Lash Extensions</h3>
+        <table>
+            <tr><th>Service</th><th>Price</th></tr>
+            <tr><td>Classic</td><td>€50</td></tr>
+            <tr><td>Hybrid</td><td>€55</td></tr>
+            <tr><td>YY Lash</td><td>€55</td></tr>
+            <tr><td>Angel Lash</td><td>€55</td></tr>
+            <tr><td>YY & Volume mix</td><td>€60</td></tr>
+            <tr><td>Light Volume</td><td>€60</td></tr>
+            <tr><td>Volume</td><td>€65</td></tr>
+        </table>
 
-    <div class="service-box">
-        <img src="images/brow-lamination.jpg" alt="Brow Lamination">
-        <h3>Brow Lamination</h3>
-        <p>Smooth and shape your brows for a perfect, uniform look.</p>
-    </div>
+        <h3>Lash Lift</h3>
+        <table>
+            <tr><th>Service</th><th>Price</th></tr>
+            <tr><td>Lash Lift</td><td>€40</td></tr>
+            <tr><td>Lash Lift with Tint</td><td>€45</td></tr>
+        </table>
 
-    <div class="service-box">
-        <img src="images/eyeliner-tint.jpg" alt="Eyeliner Tint">
-        <h3>Eyeliner Tint</h3>
-        <p>Enhance your eyes with subtle, long-lasting eyeliner tinting.</p>
+        <h3>Brows</h3>
+        <table>
+            <tr><th>Service</th><th>Price</th></tr>
+            <tr><td>Brow Wax or Tint</td><td>€20</td></tr>
+            <tr><td>HD Brows</td><td>€40</td></tr>
+            <tr><td>Brow Lamination</td><td>€45</td></tr>
+            <tr><td>Brow Lamination with Tint</td><td>€50</td></tr>
+        </table>
+
+        <h3>Products</h3>
+        <table>
+            <tr><th>Product</th><th>Price</th></tr>
+            <tr><td>Lash Shampoo Set<br><small>Includes: Lash Shampoo, Lash Shampoo Brush, Travel Spoolie, Regular Spoolie</small></td><td>€20</td></tr>
+        </table>
+
     </div>
 
 </div>
@@ -161,4 +197,3 @@
 
 </body>
 </html>
-

@@ -9,37 +9,61 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #fff;
             color: #333;
+            background-color: #fff;
+            line-height: 1.6;
         }
 
         header {
-            background: #f3a7c0;
+            background-color: #f3a7c0;
             color: white;
-            padding: 40px 20px;
             text-align: center;
+            padding: 40px 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+        }
+
+        header p {
+            margin: 5px 0 0;
         }
 
         nav {
-            background: #e06a9d;
-            padding: 15px;
+            background-color: #e06a9d;
             text-align: center;
+            padding: 15px;
         }
 
         nav a {
             color: white;
-            margin: 0 15px;
+            margin: 0 18px;
             text-decoration: none;
             font-weight: bold;
         }
 
+        /* Main hero image */
+        .main-image {
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* scales & crops nicely */
+        }
+
+        /* Services grid */
         .services {
             max-width: 1000px;
-            margin: auto;
-            padding: 40px 20px;
+            margin: 50px auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
+            padding: 0 20px;
         }
 
         .service-box {
@@ -52,7 +76,7 @@
 
         .service-box img {
             width: 100%;
-            height: 220px;
+            height: 180px;
             object-fit: cover;
         }
 
@@ -66,10 +90,11 @@
         }
 
         footer {
-            background: #333;
+            background-color: #333;
             color: white;
-            padding: 20px;
             text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -77,7 +102,7 @@
 
 <header>
     <h1>Our Services</h1>
-    <p>Beautiful lashes, wherever you are in Dublin</p>
+    <p>Professional Mobile Beauty Services in Dublin</p>
 </header>
 
 <nav>
@@ -85,31 +110,56 @@
     <a href="services.html">Our Services</a>
 </nav>
 
-<section class="services">
+<!-- BIG MAIN IMAGE -->
+<div class="main-image">
+    <img src="images/Insidevan.png" alt="Inside Lisa’s mobile beauty van">
+</div>
+
+<!-- Services grid -->
+<div class="services">
 
     <div class="service-box">
         <img src="images/classic-lashes.jpg" alt="Classic Lashes">
         <h3>Classic Lashes</h3>
-        <p>Natural-looking extensions applied one-to-one for a clean, elegant finish.</p>
+        <p>Natural-looking lash extensions applied one-to-one for an elegant everyday look.</p>
     </div>
 
     <div class="service-box">
         <img src="images/hybrid-lashes.jpg" alt="Hybrid Lashes">
         <h3>Hybrid Lashes</h3>
-        <p>A mix of classic and volume lashes for added texture and fullness.</p>
+        <p>Combination of classic and volume lashes for added texture and fullness.</p>
     </div>
 
     <div class="service-box">
         <img src="images/volume-lashes.jpg" alt="Volume Lashes">
         <h3>Volume Lashes</h3>
-        <p>Soft, lightweight fans for a bold and glamorous look.</p>
+        <p>Soft, lightweight fans for a bold and glamorous lash look.</p>
     </div>
 
-</section>
+    <div class="service-box">
+        <img src="images/lash-infill.jpg" alt="Lash Infill">
+        <h3>Lash Infills</h3>
+        <p>Keep your lashes looking fresh and full with regular infill appointments.</p>
+    </div>
+
+    <div class="service-box">
+        <img src="images/brow-lamination.jpg" alt="Brow Lamination">
+        <h3>Brow Lamination</h3>
+        <p>Smooth and shape your brows for a perfect, uniform look.</p>
+    </div>
+
+    <div class="service-box">
+        <img src="images/eyeliner-tint.jpg" alt="Eyeliner Tint">
+        <h3>Eyeliner Tint</h3>
+        <p>Enhance your eyes with subtle, long-lasting eyeliner tinting.</p>
+    </div>
+
+</div>
 
 <footer>
-    © 2026 Lisa’s Lashes | Dublin
+    © 2026 Lisa’s Lashes | Mobile Beauty Salon Dublin
 </footer>
 
 </body>
 </html>
+

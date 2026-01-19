@@ -9,42 +9,114 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #fff;
+            background-color: #ffffff;
             color: #333;
+            line-height: 1.6;
         }
 
+        /* Header */
         header {
-            background: #f3a7c0;
+            background-color: #f3a7c0;
             color: white;
-            padding: 50px 20px;
+            padding: 60px 20px;
             text-align: center;
         }
 
+        header h1 {
+            font-size: 2.6rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+        }
+
+        /* Navigation */
         nav {
-            background: #e06a9d;
+            background-color: #e06a9d;
             padding: 15px;
             text-align: center;
         }
 
         nav a {
             color: white;
-            margin: 0 15px;
+            margin: 0 18px;
             text-decoration: none;
+            font-weight: bold;
+            font-size: 1.05rem;
+        }
+
+        /* Hero image */
+        .hero {
+            width: 100%;
+            max-height: 450px;
+            overflow: hidden;
+        }
+
+        .hero img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Sections */
+        section {
+            max-width: 1000px;
+            margin: auto;
+            padding: 50px 20px;
+        }
+
+        section h2 {
+            color: #e06a9d;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .about,
+        .why {
+            text-align: center;
+        }
+
+        .why ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .why li {
+            padding: 8px 0;
+            font-size: 1.05rem;
+        }
+
+        /* Call to action */
+        .cta {
+            background-color: #f9f9f9;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .cta a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 14px 30px;
+            background-color: #e06a9d;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
             font-weight: bold;
         }
 
-        section {
-            max-width: 900px;
-            margin: auto;
-            padding: 40px 20px;
-            text-align: center;
+        .cta a:hover {
+            background-color: #c95685;
         }
 
+        /* Footer */
         footer {
-            background: #333;
+            background-color: #333;
             color: white;
-            padding: 20px;
             text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -52,7 +124,7 @@
 
 <header>
     <h1>Lisa’s Lashes</h1>
-    <p>Mobile Beauty Salon • Dublin</p>
+    <p>Professional Mobile Lash Services Across Dublin</p>
 </header>
 
 <nav>
@@ -60,17 +132,10 @@
     <a href="services.html">Our Services</a>
 </nav>
 
-<section>
-    <h2>Welcome</h2>
-    <p>
-        Professional mobile lash services delivered to your home across Dublin.
-        High-quality products, beautiful results, and comfort guaranteed.
-    </p>
-</section>
+<!-- HERO IMAGE -->
+<div class="hero">
+    <img src="images/hero-lashes.jpg" alt="Beautiful lash extensions">
+</div>
 
-<footer>
-    © 2026 Lisa’s Lashes | Dublin
-</footer>
-
-</body>
-</html>
+<section class="about">
+    <

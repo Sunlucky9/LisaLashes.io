@@ -14,18 +14,35 @@
             line-height: 1.6;
         }
 
-        /* HEADER (logo only) */
-        header {
+        /* HEADER */
+        .site-header {
             background-color: #f3a7c0;
-            padding: 25px;
+            padding: 20px 30px;
             display: flex;
-            justify-content: center;
             align-items: center;
         }
 
-        header img {
-            height: 170px; /* larger logo */
+        /* Logo on left */
+        .logo img {
+            height: 140px;
             width: auto;
+        }
+
+        /* Center text */
+        .header-text {
+            flex: 1;
+            text-align: center;
+            color: white;
+        }
+
+        .header-text h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        .header-text p {
+            margin: 6px 0 0;
+            font-size: 1.1rem;
         }
 
         /* NAVIGATION */
@@ -57,7 +74,7 @@
             display: block;
         }
 
-        /* CONTENT SECTIONS */
+        /* SECTIONS */
         section {
             max-width: 1000px;
             margin: auto;
@@ -79,7 +96,7 @@
             padding: 8px 0;
         }
 
-        /* CALL TO ACTION */
+        /* CTA */
         .cta {
             background-color: #f9f9f9;
         }
@@ -108,10 +125,20 @@
             font-size: 0.9rem;
         }
 
-        /* MOBILE LOGO SIZE */
-        @media (max-width: 600px) {
-            header img {
-                height: 120px;
+        /* MOBILE */
+        @media (max-width: 700px) {
+            .site-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo img {
+                height: 110px;
+                margin-bottom: 10px;
+            }
+
+            .hero {
+                height: 300px;
             }
         }
     </style>
@@ -119,8 +146,15 @@
 <body>
 
 <!-- HEADER -->
-<header>
-    <img src="images/Picture1.png" alt="Lisa’s Lashes Logo">
+<header class="site-header">
+    <div class="logo">
+        <img src="images/Picture1.png" alt="Lisa’s Lashes Logo">
+    </div>
+
+    <div class="header-text">
+        <h1>Lisa’s Lashes</h1>
+        <p>Professional Mobile Beauty Services in Dublin</p>
+    </div>
 </header>
 
 <!-- NAV -->
@@ -140,12 +174,8 @@
     <h2>About Lisa’s Lashes</h2>
     <p>
         Lisa’s Lashes is a professional mobile beauty salon based in Dublin,
-        offering high-quality lash and beauty services in the comfort of your own home.
-        We combine luxury, convenience, and expert care to help you look and feel your best.
-    </p>
-    <p>
-        Whether you’re preparing for a special occasion or maintaining your everyday look,
-        our mobile service brings salon-quality treatments directly to you.
+        providing high-quality lash and beauty services in the comfort of your own home.
+        We focus on convenience, comfort, and exceptional results.
     </p>
 </section>
 
@@ -153,18 +183,18 @@
 <section>
     <h2>Why Choose Us?</h2>
     <ul>
-        <li>✔ Fully mobile beauty service across Dublin</li>
-        <li>✔ Premium professional products</li>
-        <li>✔ Clean, safe & hygienic treatments</li>
+        <li>✔ Fully mobile service across Dublin</li>
+        <li>✔ Professional and hygienic treatments</li>
+        <li>✔ Premium beauty products</li>
         <li>✔ Personalised consultations</li>
-        <li>✔ Relaxing experience at home</li>
+        <li>✔ Relaxing salon experience at home</li>
     </ul>
 </section>
 
 <!-- CTA -->
 <section class="cta">
     <h2>Book Your Appointment</h2>
-    <p>Enjoy beautiful lashes without leaving your home.</p>
+    <p>Beautiful lashes without leaving your home.</p>
     <a href="services.html">View Our Services</a>
 </section>
 
@@ -175,4 +205,5 @@
 
 </body>
 </html>
+
 

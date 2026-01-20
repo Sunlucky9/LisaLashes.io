@@ -105,20 +105,22 @@
         color: #666;
     }
 
-    .schedule-row {
+    .booking-form {
+        margin-top: 20px;
         display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-bottom: 15px;
+        flex-direction: column;
+        gap: 15px;
     }
 
-    .schedule-row label {
-        min-width: 70px;
+    .booking-form label {
+        font-weight: bold;
     }
 
-    select, input[type="date"] {
+    .booking-form input, .booking-form select {
         padding: 6px;
         font-size: 0.95rem;
+        width: 100%;
+        max-width: 300px;
     }
 
     .pay-btn {
@@ -130,6 +132,7 @@
         border-radius: 25px;
         cursor: pointer;
         font-size: 1rem;
+        width: fit-content;
     }
 
     .pay-btn:hover {
@@ -202,7 +205,22 @@
         <h2>My Bookings</h2>
         <div id="bookings-list"></div>
 
-        <!-- PAY BUTTON -->
+        <div class="booking-form">
+            <label for="booking-date">Select Date:</label>
+            <input type="date" id="booking-date" required>
+
+            <label for="booking-time">Select Time:</label>
+            <select id="booking-time" required>
+                <!-- Time options added via JS -->
+            </select>
+
+            <label for="booking-location">Your Location:</label>
+            <input type="text" id="booking-location" placeholder="Enter your address" required>
+
+            <label for="booking-phone">Phone Number:</label>
+            <input type="tel" id="booking-phone" placeholder="Enter your phone number" required>
+        </div>
+
         <button class="pay-btn" onclick="payNow()">Pay</button>
     </div>
 
@@ -226,55 +244,31 @@ function loadBookings() {
     bookingsList.innerHTML = '';
     let total = 0;
 
-    bookings.forEach((b, index) => {
+    bookings.forEach(b => {
         total += b.price;
-
         const row = document.createElement('div');
         row.className = 'service-row';
-
-        // service + price
-        const infoSpan = document.createElement('span');
-        infoSpan.textContent = `${b.service} - €${b.price}`;
-
-        // schedule selector
-        const scheduleDiv = document.createElement('div');
-        scheduleDiv.className = 'schedule-row';
-
-        // date input
-        const dateInput = document.createElement('input');
-        dateInput.type = 'date';
-        dateInput.min = new Date().toISOString().split('T')[0]; // today
-        dateInput.max = new Date(new Date().setMonth(new Date().getMonth()+3)).toISOString().split('T')[0]; // 3 months ahead
-        dateInput.required = true;
-
-        // time select (11:00 - 19:00)
-        const timeSelect = document.createElement('select');
-        const startHour = 11;
-        const endHour = 19;
-        for(let h=startHour; h<=endHour; h++){
-            const option = document.createElement('option');
-            option.value = `${h}:00`;
-            option.textContent = `${h}:00`;
-            timeSelect.appendChild(option);
-        }
-
-        scheduleDiv.appendChild(document.createTextNode('Date: '));
-        scheduleDiv.appendChild(dateInput);
-        scheduleDiv.appendChild(document.createTextNode('Time: '));
-        scheduleDiv.appendChild(timeSelect);
-
-        row.appendChild(infoSpan);
-        row.appendChild(scheduleDiv);
-
+        row.innerHTML = `<span>${b.service}</span><span>€${b.price}</span>`;
         bookingsList.appendChild(row);
     });
 
-    // total row
     const totalDiv = document.createElement('div');
     totalDiv.className = 'service-row';
     totalDiv.style.fontWeight = 'bold';
     totalDiv.innerHTML = `<span>Total</span><span>€${total}</span>`;
     bookingsList.appendChild(totalDiv);
+}
+
+function populateTimeOptions() {
+    const timeSelect = document.getElementById('booking-time');
+    const startHour = 11;
+    const endHour = 19;
+    for(let h = startHour; h <= endHour; h++) {
+        const option = document.createElement('option');
+        option.value = `${h}:00`;
+        option.textContent = `${h}:00`;
+        timeSelect.appendChild(option);
+    }
 }
 
 function payNow() {
@@ -284,41 +278,43 @@ function payNow() {
         return;
     }
 
-    // check if all date/time selected
-    const dateInputs = document.querySelectorAll('.schedule-row input[type="date"]');
-    for(let i=0; i<dateInputs.length; i++){
-        if(dateInputs[i].value === ''){
-            alert("Please select a date for all bookings before paying.");
-            return;
-        }
+    const date = document.getElementById('booking-date').value;
+    const time = document.getElementById('booking-time').value;
+    const location = document.getElementById('booking-location').value.trim();
+    const phone = document.getElementById('booking-phone').value.trim();
+
+    if(!date || !time || !location || !phone){
+        alert("Please fill out all booking details before paying.");
+        return;
     }
 
-    const timeSelects = document.querySelectorAll('.schedule-row select');
-    for(let i=0; i<timeSelects.length; i++){
-        if(timeSelects[i].value === ''){
-            alert("Please select a time for all bookings before paying.");
-            return;
-        }
-    }
-
-    // save schedule to localStorage
-    bookings.forEach((b, i)=>{
-        b.date = dateInputs[i].value;
-        b.time = timeSelects[i].value;
+    // attach schedule + contact to each service
+    bookings.forEach(b => {
+        b.date = date;
+        b.time = time;
+        b.location = location;
+        b.phone = phone;
     });
+
     localStorage.setItem("bookings", JSON.stringify(bookings));
 
-    // simulate payment
     const total = bookings.reduce((sum,b)=>sum+b.price,0);
-    alert(`Thank you! You have paid €${total}.\nYour appointments:\n` + 
-        bookings.map(b=>`${b.service} on ${b.date} at ${b.time}`).join('\n'));
+    alert(`Thank you! You have paid €${total}.\n` +
+          `Your appointment on ${date} at ${time}\nLocation: ${location}\nPhone: ${phone}`);
 
-    // clear bookings
     localStorage.removeItem("bookings");
     loadBookings();
+    // clear form
+    document.getElementById('booking-date').value = '';
+    document.getElementById('booking-time').selectedIndex = 0;
+    document.getElementById('booking-location').value = '';
+    document.getElementById('booking-phone').value = '';
 }
 
-window.onload = loadBookings;
+window.onload = function(){
+    loadBookings();
+    populateTimeOptions();
+};
 </script>
 
 </body>

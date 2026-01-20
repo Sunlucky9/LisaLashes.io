@@ -15,17 +15,36 @@
         }
 
         /* HEADER */
-        header {
+        .site-header {
             background-color: #f3a7c0;
-            padding: 25px;
-            display: flex;
-            justify-content: center;
+            padding: 20px 30px;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
             align-items: center;
         }
 
-        header img {
-            height: 170px;
+        .header-left img {
+            height: 140px;
             width: auto;
+        }
+
+        .header-center {
+            text-align: center;
+            color: white;
+        }
+
+        .header-center h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        .header-center p {
+            margin: 6px 0 0;
+            font-size: 1.1rem;
+        }
+
+        .header-right {
+            width: 140px;
         }
 
         /* NAV */
@@ -40,25 +59,24 @@
             margin: 0 18px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.05rem;
         }
 
-        /* CONTENT */
+        /* CONTACT SECTION */
         section {
             max-width: 800px;
-            margin: auto;
-            padding: 50px 20px;
+            margin: 50px auto;
+            padding: 0 20px;
             text-align: center;
         }
 
-        h2 {
+        section h2 {
             color: #e06a9d;
             margin-bottom: 20px;
         }
 
         .contact-box {
             background-color: #f9f9f9;
-            padding: 30px;
+            padding: 35px;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
@@ -85,59 +103,84 @@
             text-align: center;
             padding: 20px;
             font-size: 0.9rem;
+            margin-top: 50px;
         }
 
         /* MOBILE */
-        @media (max-width: 600px) {
-            header img {
-                height: 120px;
+        @media (max-width: 700px) {
+            .site-header {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .header-right {
+                display: none;
+            }
+
+            .header-left img {
+                height: 110px;
+                margin-bottom: 10px;
             }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <img src="images/Picture1.png" alt="Lisa’s Lashes Logo">
+<!-- HEADER -->
+<header class="site-header">
+    <div class="header-left">
+        <img src="images/Picture1.png" alt="Lisa’s Lashes Logo">
+    </div>
+
+    <div class="header-center">
+        <h1>Lisa’s Lashes</h1>
+        <p>Professional Mobile Beauty Services in Dublin</p>
+    </div>
+
+    <div class="header-right"></div>
 </header>
 
+<!-- NAV -->
 <nav>
     <a href="index.html">Home</a>
     <a href="services.html">Our Services</a>
     <a href="contact.html">Contact</a>
 </nav>
 
+<!-- CONTACT CONTENT -->
 <section>
-    <h2>Contact Lisa’s Lashes</h2>
+    <h2>Contact Us</h2>
 
     <div class="contact-box">
 
         <div class="contact-item">
-            📍 <strong>Location:</strong><br>
-            Mobile beauty service covering <strong>Dublin</strong>
+            📍 <strong>Location</strong><br>
+            Mobile beauty service covering Dublin
         </div>
 
         <div class="contact-item">
-            📞 <strong>Phone:</strong><br>
+            📞 <strong>Phone</strong><br>
             <a href="tel:+353000000000">+353 00 000 0000</a>
         </div>
 
         <div class="contact-item">
-            ✉️ <strong>Email:</strong><br>
+            ✉️ <strong>Email</strong><br>
             <a href="mailto:lisaslashes@example.com">lisaslashes@example.com</a>
         </div>
 
         <div class="contact-item">
-            📷 <strong>Instagram:</strong><br>
+            📷 <strong>Instagram</strong><br>
             <a href="https://instagram.com/" target="_blank">@lisaslashes</a>
         </div>
 
     </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
     © 2026 Lisa’s Lashes | Mobile Beauty Salon Dublin
 </footer>
 
 </body>
 </html>
+

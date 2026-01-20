@@ -1,147 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Our Services | Lisa’s Lashes</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Our Services | Lisa’s Lashes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        color: #333;
-        background-color: #fff;
-        line-height: 1.6;
-    }
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #fff;
+            line-height: 1.6;
+        }
 
-    header {
-        background-color: #f3a7c0;
-        color: white;
-        text-align: center;
-        padding: 40px 20px;
-    }
+        /* HEADER */
+        .site-header {
+            background-color: #f3a7c0;
+            padding: 20px 30px;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+        }
 
-    header h1 {
-        margin: 0;
-        font-size: 2.2rem;
-    }
+        .header-left img {
+            height: 140px;
+            width: auto;
+        }
 
-    header p {
-        margin: 5px 0 0;
-    }
+        .header-center {
+            text-align: center;
+            color: white;
+        }
 
-    nav {
-        background-color: #e06a9d;
-        text-align: center;
-        padding: 15px;
-    }
+        .header-center h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
 
-    nav a {
-        color: white;
-        margin: 0 18px;
-        text-decoration: none;
-        font-weight: bold;
-    }
+        .header-center p {
+            margin: 6px 0 0;
+            font-size: 1.1rem;
+        }
 
-    /* Two-column layout */
-    .content {
-        display: flex;
-        flex-wrap: wrap;
-        max-width: 1100px;
-        margin: 50px auto;
-        gap: 30px;
-        padding: 0 20px;
-        align-items: flex-start;
-    }
+        .header-right {
+            width: 140px;
+        }
 
-    /* Left column: image */
-    .image-column {
-        flex: 1 1 300px;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-    }
+        /* NAV */
+        nav {
+            background-color: #e06a9d;
+            text-align: center;
+            padding: 15px;
+        }
 
-    .image-column img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
+        nav a {
+            color: white;
+            margin: 0 18px;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-    /* Right column: services */
-    .services-column {
-        flex: 2 1 500px;
-    }
-
-    .services-column h2 {
-        color: #e06a9d;
-        margin-bottom: 15px;
-    }
-
-    .services-column h3 {
-        margin: 25px 0 10px;
-        color: #e06a9d;
-    }
-
-    /* Each service row */
-    .service-row {
-        display: flex;
-        justify-content: space-between;
-        padding: 8px 0;
-        border-bottom: 1px solid #ddd;
-    }
-
-    .service-row small {
-        display: block;
-        font-size: 0.85rem;
-        color: #666;
-    }
-
-    footer {
-        background-color: #333;
-        color: white;
-        text-align: center;
-        padding: 20px;
-        font-size: 0.9rem;
-    }
-
-    @media (max-width: 800px) {
+        /* MAIN CONTENT */
         .content {
-            flex-direction: column;
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
         }
 
-        .image-column, .services-column {
-            flex: 1 1 100%;
-        }
-
+        /* IMAGE COLUMN */
         .image-column {
+            flex: 1;
+            display: flex;
             justify-content: center;
         }
-    }
-</style>
+
+        .image-column img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* SERVICES COLUMN */
+        .services-column {
+            flex: 2;
+        }
+
+        .services-column h2 {
+            color: #e06a9d;
+            margin-bottom: 20px;
+        }
+
+        .services-column h3 {
+            margin-top: 30px;
+            color: #e06a9d;
+        }
+
+        /* SERVICE ROW */
+        .service-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .service-row small {
+            display: block;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            margin-top: 40px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 800px) {
+            .site-header {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .header-right {
+                display: none;
+            }
+
+            .header-left img {
+                height: 110px;
+                margin-bottom: 10px;
+            }
+
+            .content {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<header>
-    <h1>Lisa’s Lashes</h1>
-    <p>Professional Mobile Beauty Services in Dublin</p>
+<!-- HEADER -->
+<header class="site-header">
+    <div class="header-left">
+        <img src="images/Picture1.png" alt="Lisa’s Lashes Logo">
+    </div>
+
+    <div class="header-center">
+        <h1>Lisa’s Lashes</h1>
+        <p>Professional Mobile Beauty Services in Dublin</p>
+    </div>
+
+    <div class="header-right"></div>
 </header>
 
+<!-- NAV -->
 <nav>
     <a href="index.html">Home</a>
     <a href="services.html">Our Services</a>
     <a href="contact.html">Contact</a>
 </nav>
 
+<!-- CONTENT -->
 <div class="content">
 
-    <!-- Left column: image -->
+    <!-- LEFT IMAGE -->
     <div class="image-column">
-        <img src="images/Insidevan.png" alt="Inside Lisa’s mobile beauty van">
+        <img src="images/Insidevan.png" alt="Inside the mobile beauty van">
     </div>
 
-    <!-- Right column: services -->
+    <!-- SERVICES -->
     <div class="services-column">
 
         <h2>Price List</h2>
@@ -151,7 +187,7 @@
         <div class="service-row"><span>Hybrid</span><span>€55</span></div>
         <div class="service-row"><span>YY Lash</span><span>€55</span></div>
         <div class="service-row"><span>Angel Lash</span><span>€55</span></div>
-        <div class="service-row"><span>YY & Volume mix</span><span>€60</span></div>
+        <div class="service-row"><span>YY & Volume Mix</span><span>€60</span></div>
         <div class="service-row"><span>Light Volume</span><span>€60</span></div>
         <div class="service-row"><span>Volume</span><span>€65</span></div>
 
@@ -167,7 +203,10 @@
 
         <h3>Products</h3>
         <div class="service-row">
-            <span>Lash Shampoo Set <small>Includes: Lash Shampoo, Lash Shampoo Brush, Travel Spoolie, Regular Spoolie</small></span>
+            <span>
+                Lash Shampoo Set
+                <small>Includes: Lash Shampoo, Brush, Travel Spoolie, Regular Spoolie</small>
+            </span>
             <span>€20</span>
         </div>
 
@@ -175,9 +214,11 @@
 
 </div>
 
+<!-- FOOTER -->
 <footer>
     © 2026 Lisa’s Lashes | Mobile Beauty Salon Dublin
 </footer>
 
 </body>
 </html>
+

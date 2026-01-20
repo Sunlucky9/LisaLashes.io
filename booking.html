@@ -105,6 +105,22 @@
         color: #666;
     }
 
+    .schedule-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    .schedule-row label {
+        min-width: 70px;
+    }
+
+    select, input[type="date"] {
+        padding: 6px;
+        font-size: 0.95rem;
+    }
+
     .pay-btn {
         margin-top: 20px;
         padding: 10px 25px;
@@ -169,8 +185,8 @@
 <nav>
     <a href="index.html">Home</a>
     <a href="services.html">Our Services</a>
-    <a href="booking.html">My Bookings</a>
     <a href="contact.html">Contact</a>
+    <a href="booking.html">My Bookings</a>
 </nav>
 
 <!-- CONTENT -->
@@ -185,6 +201,8 @@
     <div class="services-column">
         <h2>My Bookings</h2>
         <div id="bookings-list"></div>
+
+        <!-- PAY BUTTON -->
         <button class="pay-btn" onclick="payNow()">Pay</button>
     </div>
 
@@ -210,12 +228,48 @@ function loadBookings() {
 
     bookings.forEach((b, index) => {
         total += b.price;
-        const div = document.createElement('div');
-        div.className = 'service-row';
-        div.innerHTML = `<span>${b.service}</span><span>€${b.price}</span>`;
-        bookingsList.appendChild(div);
+
+        const row = document.createElement('div');
+        row.className = 'service-row';
+
+        // service + price
+        const infoSpan = document.createElement('span');
+        infoSpan.textContent = `${b.service} - €${b.price}`;
+
+        // schedule selector
+        const scheduleDiv = document.createElement('div');
+        scheduleDiv.className = 'schedule-row';
+
+        // date input
+        const dateInput = document.createElement('input');
+        dateInput.type = 'date';
+        dateInput.min = new Date().toISOString().split('T')[0]; // today
+        dateInput.max = new Date(new Date().setMonth(new Date().getMonth()+3)).toISOString().split('T')[0]; // 3 months ahead
+        dateInput.required = true;
+
+        // time select (11:00 - 19:00)
+        const timeSelect = document.createElement('select');
+        const startHour = 11;
+        const endHour = 19;
+        for(let h=startHour; h<=endHour; h++){
+            const option = document.createElement('option');
+            option.value = `${h}:00`;
+            option.textContent = `${h}:00`;
+            timeSelect.appendChild(option);
+        }
+
+        scheduleDiv.appendChild(document.createTextNode('Date: '));
+        scheduleDiv.appendChild(dateInput);
+        scheduleDiv.appendChild(document.createTextNode('Time: '));
+        scheduleDiv.appendChild(timeSelect);
+
+        row.appendChild(infoSpan);
+        row.appendChild(scheduleDiv);
+
+        bookingsList.appendChild(row);
     });
 
+    // total row
     const totalDiv = document.createElement('div');
     totalDiv.className = 'service-row';
     totalDiv.style.fontWeight = 'bold';
@@ -225,12 +279,41 @@ function loadBookings() {
 
 function payNow() {
     let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
-    if (bookings.length === 0) {
+    if(bookings.length === 0){
         alert("No bookings to pay for.");
         return;
     }
-    // Simulate payment
-    alert("Thank you! Your total of €" + bookings.reduce((a,b)=>a+b.price,0) + " has been paid.");
+
+    // check if all date/time selected
+    const dateInputs = document.querySelectorAll('.schedule-row input[type="date"]');
+    for(let i=0; i<dateInputs.length; i++){
+        if(dateInputs[i].value === ''){
+            alert("Please select a date for all bookings before paying.");
+            return;
+        }
+    }
+
+    const timeSelects = document.querySelectorAll('.schedule-row select');
+    for(let i=0; i<timeSelects.length; i++){
+        if(timeSelects[i].value === ''){
+            alert("Please select a time for all bookings before paying.");
+            return;
+        }
+    }
+
+    // save schedule to localStorage
+    bookings.forEach((b, i)=>{
+        b.date = dateInputs[i].value;
+        b.time = timeSelects[i].value;
+    });
+    localStorage.setItem("bookings", JSON.stringify(bookings));
+
+    // simulate payment
+    const total = bookings.reduce((sum,b)=>sum+b.price,0);
+    alert(`Thank you! You have paid €${total}.\nYour appointments:\n` + 
+        bookings.map(b=>`${b.service} on ${b.date} at ${b.time}`).join('\n'));
+
+    // clear bookings
     localStorage.removeItem("bookings");
     loadBookings();
 }

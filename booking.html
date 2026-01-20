@@ -105,6 +105,21 @@
         color: #666;
     }
 
+    .cancel-btn {
+        margin-left: 15px;
+        background-color: #f44336;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 4px 10px;
+        cursor: pointer;
+        font-size: 0.85rem;
+    }
+
+    .cancel-btn:hover {
+        background-color: #d32f2f;
+    }
+
     .booking-form {
         margin-top: 20px;
         display: flex;
@@ -188,8 +203,8 @@
 <nav>
     <a href="index.html">Home</a>
     <a href="services.html">Our Services</a>
-    <a href="booking.html">My Bookings</a>
     <a href="contact.html">Contact</a>
+    <a href="booking.html">My Bookings</a>
 </nav>
 
 <!-- CONTENT -->
@@ -210,9 +225,7 @@
             <input type="date" id="booking-date" required>
 
             <label for="booking-time">Select Time:</label>
-            <select id="booking-time" required>
-                <!-- Time options added via JS -->
-            </select>
+            <select id="booking-time" required></select>
 
             <label for="booking-location">Your Location:</label>
             <input type="text" id="booking-location" placeholder="Enter your address" required>
@@ -236,19 +249,21 @@ function loadBookings() {
     const bookingsList = document.getElementById('bookings-list');
     let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
 
-    if (bookings.length === 0) {
+    bookingsList.innerHTML = '';
+
+    if(bookings.length === 0){
         bookingsList.innerHTML = "<p>No bookings yet.</p>";
         return;
     }
 
-    bookingsList.innerHTML = '';
     let total = 0;
 
-    bookings.forEach(b => {
+    bookings.forEach((b, index) => {
         total += b.price;
         const row = document.createElement('div');
         row.className = 'service-row';
-        row.innerHTML = `<span>${b.service}</span><span>€${b.price}</span>`;
+        row.innerHTML = `<span>${b.service}</span><span>€${b.price}</span>
+                         <button class="cancel-btn" onclick="cancelService(${index})">Cancel</button>`;
         bookingsList.appendChild(row);
     });
 
@@ -257,6 +272,13 @@ function loadBookings() {
     totalDiv.style.fontWeight = 'bold';
     totalDiv.innerHTML = `<span>Total</span><span>€${total}</span>`;
     bookingsList.appendChild(totalDiv);
+}
+
+function cancelService(index){
+    let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+    bookings.splice(index,1);
+    localStorage.setItem("bookings", JSON.stringify(bookings));
+    loadBookings();
 }
 
 function populateTimeOptions() {
@@ -288,7 +310,6 @@ function payNow() {
         return;
     }
 
-    // attach schedule + contact to each service
     bookings.forEach(b => {
         b.date = date;
         b.time = time;
@@ -300,11 +321,10 @@ function payNow() {
 
     const total = bookings.reduce((sum,b)=>sum+b.price,0);
     alert(`Thank you! You have paid €${total}.\n` +
-          `Your appointment on ${date} at ${time}\nLocation: ${location}\nPhone: ${phone}`);
+          `Appointment on ${date} at ${time}\nLocation: ${location}\nPhone: ${phone}`);
 
     localStorage.removeItem("bookings");
     loadBookings();
-    // clear form
     document.getElementById('booking-date').value = '';
     document.getElementById('booking-time').selectedIndex = 0;
     document.getElementById('booking-location').value = '';
@@ -312,10 +332,11 @@ function payNow() {
 }
 
 window.onload = function(){
-    loadBookings();
     populateTimeOptions();
+    loadBookings();
 };
 </script>
 
 </body>
 </html>
+

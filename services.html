@@ -1,176 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Our Services | Lisa’s Lashes</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Our Services | Lisa’s Lashes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        color: #333;
-        background-color: #fff;
-        line-height: 1.6;
-    }
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #fff;
+            line-height: 1.6;
+        }
 
-    header {
-        background-color: #f3a7c0;
-        color: white;
-        text-align: center;
-        padding: 40px 20px;
-    }
+        /* HEADER */
+        .site-header {
+            background-color: #f3a7c0;
+            padding: 20px 30px;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+        }
 
-    nav {
-        background-color: #e06a9d;
-        text-align: center;
-        padding: 15px;
-    }
+        .header-left img {
+            height: 140px;
+            width: auto;
+        }
 
-    nav a {
-        color: white;
-        margin: 0 18px;
-        text-decoration: none;
-        font-weight: bold;
-    }
+        .header-center {
+            text-align: center;
+            color: white;
+        }
 
-    .content {
-        display: flex;
-        flex-wrap: wrap;
-        max-width: 1100px;
-        margin: 50px auto;
-        gap: 30px;
-        padding: 0 20px;
-    }
+        .header-center h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
 
-    .image-column {
-        flex: 1 1 300px;
-        display: flex;
-        justify-content: center;
-    }
+        .header-center p {
+            margin: 6px 0 0;
+            font-size: 1.1rem;
+        }
 
-    .image-column img {
-        max-width: 100%;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
+        .header-right {
+            width: 140px;
+        }
 
-    .services-column {
-        flex: 2 1 500px;
-    }
+        /* NAV */
+        nav {
+            background-color: #e06a9d;
+            text-align: center;
+            padding: 15px;
+        }
 
-    .services-column h2,
-    .services-column h3 {
-        color: #e06a9d;
-    }
+        nav a {
+            color: white;
+            margin: 0 18px;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-bottom: 30px;
-    }
+        /* MAIN CONTENT */
+        .content {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
 
-    th, td {
-        padding: 8px 10px;
-        border-bottom: 1px solid #ddd;
-        text-align: left;
-    }
+        /* IMAGE COLUMN */
+        .image-column {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
 
-    th {
-        border-bottom: 2px solid #e06a9d;
-    }
+        .image-column img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
 
-    /* BOOK BUTTON */
-    .book-btn {
-        padding: 6px 14px;
-        background-color: #e06a9d;
-        color: white;
-        border: none;
-        border-radius: 20px;
-        cursor: pointer;
-        font-size: 0.85rem;
-    }
+        /* SERVICES COLUMN */
+        .services-column {
+            flex: 2;
+        }
 
-    .book-btn:hover {
-        background-color: #c95685;
-    }
+        .services-column h2 {
+            color: #e06a9d;
+            margin-bottom: 20px;
+        }
 
-    footer {
-        background-color: #333;
-        color: white;
-        text-align: center;
-        padding: 20px;
-        font-size: 0.9rem;
-    }
-</style>
+        .services-column h3 {
+            margin-top: 30px;
+            color: #e06a9d;
+        }
+
+        /* SERVICE ROW */
+        .service-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+            align-items: center;
+        }
+
+        .service-row small {
+            display: block;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .book-btn {
+            margin-left: 15px;
+            padding: 6px 14px;
+            background-color: #e06a9d;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+
+        .book-btn:hover {
+            background-color: #c95685;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            margin-top: 40px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 800px) {
+            .site-header {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .header-right {
+                display: none;
+            }
+
+            .header-left img {
+                height: 110px;
+                margin-bottom: 10px;
+            }
+
+            .content {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<header>
-    <h1>Lisa’s Lashes</h1>
-    <p>Professional Mobile Beauty Services in Dublin</p>
+<!-- HEADER -->
+<header class="site-header">
+    <div class="header-left">
+        <img src="images/Picture1.png" alt="Lisa’s Lashes Logo">
+    </div>
+
+    <div class="header-center">
+        <h1>Lisa’s Lashes</h1>
+        <p>Professional Mobile Beauty Services in Dublin</p>
+    </div>
+
+    <div class="header-right"></div>
 </header>
 
+<!-- NAV -->
 <nav>
     <a href="index.html">Home</a>
     <a href="services.html">Our Services</a>
+    <a href="contact.html">Contact</a>
     <a href="booking.html">My Bookings</a>
 </nav>
 
+<!-- CONTENT -->
 <div class="content">
 
+    <!-- LEFT IMAGE -->
     <div class="image-column">
-        <img src="images/Insidevan.png" alt="Inside Lisa’s mobile beauty van">
+        <img src="images/Insidevan.png" alt="Inside the mobile beauty van">
     </div>
 
+    <!-- SERVICES -->
     <div class="services-column">
 
         <h2>Price List</h2>
 
         <h3>Lash Extensions</h3>
-        <table>
-            <tr><th>Service</th><th>Price</th><th></th></tr>
-            <tr><td>Classic</td><td>€50</td><td><button class="book-btn" onclick="bookService('Classic',50)">Book</button></td></tr>
-            <tr><td>Hybrid</td><td>€55</td><td><button class="book-btn" onclick="bookService('Hybrid',55)">Book</button></td></tr>
-            <tr><td>YY Lash</td><td>€55</td><td><button class="book-btn" onclick="bookService('YY Lash',55)">Book</button></td></tr>
-            <tr><td>Angel Lash</td><td>€55</td><td><button class="book-btn" onclick="bookService('Angel Lash',55)">Book</button></td></tr>
-            <tr><td>YY & Volume Mix</td><td>€60</td><td><button class="book-btn" onclick="bookService('YY & Volume Mix',60)">Book</button></td></tr>
-            <tr><td>Light Volume</td><td>€60</td><td><button class="book-btn" onclick="bookService('Light Volume',60)">Book</button></td></tr>
-            <tr><td>Volume</td><td>€65</td><td><button class="book-btn" onclick="bookService('Volume',65)">Book</button></td></tr>
-        </table>
+        <div class="service-row">
+            <span>Classic</span>
+            <span>€50 <button class="book-btn" onclick="bookService('Classic',50)">Book</button></span>
+        </div>
+        <div class="service-row">
+            <span>Hybrid</span>
+            <span>€55 <button class="book-btn" onclick="bookService('Hybrid',55)">Book</button></span>
+        </div>
+        <div class="service-row">
+            <span>YY Lash</span>
+            <span>€55 <button class="book-btn" onclick="bookService('YY Lash',55)">Book</button></span>
+        </div>
+        <div class="service-row">
+            <span>Angel Lash</span>
+            <span>€55 <button class="book-btn" onclick="bookService('Angel Lash',55)">Book</button></span>
+        </div>
+        <div class="service-row">
+            <span>YY & Volume Mix</span>
+            <span>€60 <button class="book-btn" onclick="bookService('YY & Volume Mix',60)">Book</button></span>
+        </div>
+        <div class="service-row">
+            <span>Light Volume</span>
+            <span>€60 <button class="book-btn" onclick="bookService('Light Volume',60)">Book</button></span>
+        </div>
+        <div class="service-row">
+            <span>Volume</span>
+            <span>€65 <button class="book-btn" onclick="bookService('Volume',65)">Book</button></span>
+        </div>
 
         <h3>Lash Lift</h3>
-        <table>
-            <tr><th>Service</th><th>Price</th><th></th></tr>
-            <tr><td>Lash Lift</td><td>€40</td><td><button class="book-btn" onclick="bookService('Lash Lift',40)">Book</button></td></tr>
-            <tr><td>Lash Lift with Tint</td><td>€45</td><td><button class="book-btn" onclick="bookService('Lash Lift with Tint',45)">Book</button></td></tr>
-        </table>
+        <div class="service-row">
+            <span>Lash Lift</span>
+            <span>€40 <button class="book-btn" onclick="bookService('Lash Lift',40)">Book</button></span>
+        </div>
+        <div class="service-row">
+            <span>Lash Lift with Tint</span>
+            <span>€45 <button class="book-btn" onclick="bookService('Lash Lift with Tint',45)">Book</button></span>
+        </div>
 
         <h3>Brows</h3>
-        <table>
-            <tr><th>Service</th><th>Price</th><th></th></tr>
-            <tr><td>Brow Wax or Tint</td><td>€20</td><td><button class="book-btn" onclick="bookService('Brow Wax or Tint',20)">Book</button></td></tr>
-            <tr><td>HD Brows</td><td>€40</td><td><button class="book-btn" onclick="bookService('HD Brows',40)">Book</button></td></tr>
-            <tr><td>Brow Lamination</td><td>€45</td><td><button class="book-btn" onclick="bookService('Brow Lamination',45)">Book</button></td></tr>
-            <tr><td>Brow Lamination with Tint</td><td>€50</td><td><button class="book-btn" onclick="bookService('Brow Lamination with Tint',50)">Book</button></td></tr>
-        </table>
+        <div class="service-row">
+            <span>Brow Wax or Tint</span>
+            <span>€20 <button class="book-btn" onclick="bookService('Brow Wax or Tint',20)">Book</button></span>
+        </div>
+        <div class="service-row">
+            <span>HD Brows</span>
+            <span>€40 <button class="book-btn" onclick="bookService('HD Brows',40)">Book</button></span>
+        </div>
+        <div class="service-row">
+            <span>Brow Lamination</span>
+            <span>€45 <button class="book-btn" onclick="bookService('Brow Lamination',45)">Book</button></span>
+        </div>
+        <div class="service-row">
+            <span>Brow Lamination with Tint</span>
+            <span>€50 <button class="book-btn" onclick="bookService('Brow Lamination with Tint',50)">Book</button></span>
+        </div>
 
         <h3>Products</h3>
-        <table>
-            <tr><th>Product</th><th>Price</th><th></th></tr>
-            <tr>
-                <td>
-                    Lash Shampoo Set<br>
-                    <small>Includes: Lash Shampoo, Brush, Travel Spoolie, Regular Spoolie</small>
-                </td>
-                <td>€20</td>
-                <td><button class="book-btn" onclick="bookService('Lash Shampoo Set',20)">Book</button></td>
-            </tr>
-        </table>
+        <div class="service-row">
+            <span>
+                Lash Shampoo Set
+                <small>Includes: Lash Shampoo, Brush, Travel Spoolie, Regular Spoolie</small>
+            </span>
+            <span>€20 <button class="book-btn" onclick="bookService('Lash Shampoo Set',20)">Book</button></span>
+        </div>
 
     </div>
+
 </div>
 
+<!-- FOOTER -->
 <footer>
     © 2026 Lisa’s Lashes | Mobile Beauty Salon Dublin
 </footer>
@@ -186,4 +286,5 @@ function bookService(service, price) {
 
 </body>
 </html>
+
 

@@ -18,31 +18,36 @@
         .site-header {
             background-color: #f3a7c0;
             padding: 20px 30px;
-            display: flex;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
             align-items: center;
         }
 
-        /* Logo on left */
-        .logo img {
+        /* Left logo */
+        .header-left img {
             height: 140px;
             width: auto;
         }
 
-        /* Center text */
-        .header-text {
-            flex: 1;
+        /* Center text (true center) */
+        .header-center {
             text-align: center;
             color: white;
         }
 
-        .header-text h1 {
+        .header-center h1 {
             margin: 0;
             font-size: 2.5rem;
         }
 
-        .header-text p {
+        .header-center p {
             margin: 6px 0 0;
             font-size: 1.1rem;
+        }
+
+        /* Right spacer */
+        .header-right {
+            width: 140px;
         }
 
         /* NAVIGATION */
@@ -128,11 +133,15 @@
         /* MOBILE */
         @media (max-width: 700px) {
             .site-header {
-                flex-direction: column;
+                grid-template-columns: 1fr;
                 text-align: center;
             }
 
-            .logo img {
+            .header-right {
+                display: none;
+            }
+
+            .header-left img {
                 height: 110px;
                 margin-bottom: 10px;
             }
@@ -147,14 +156,16 @@
 
 <!-- HEADER -->
 <header class="site-header">
-    <div class="logo">
+    <div class="header-left">
         <img src="images/Picture1.png" alt="Lisa’s Lashes Logo">
     </div>
 
-    <div class="header-text">
+    <div class="header-center">
         <h1>Lisa’s Lashes</h1>
         <p>Professional Mobile Beauty Services in Dublin</p>
     </div>
+
+    <div class="header-right"></div>
 </header>
 
 <!-- NAV -->
@@ -164,7 +175,7 @@
     <a href="contact.html">Contact</a>
 </nav>
 
-<!-- HERO IMAGE -->
+<!-- HERO -->
 <div class="hero">
     <img src="images/Outsidevan.png" alt="Lisa’s Lashes mobile beauty van">
 </div>
@@ -174,12 +185,12 @@
     <h2>About Lisa’s Lashes</h2>
     <p>
         Lisa’s Lashes is a professional mobile beauty salon based in Dublin,
-        providing high-quality lash and beauty services in the comfort of your own home.
-        We focus on convenience, comfort, and exceptional results.
+        offering high-quality lash and beauty services directly to your home.
+        We focus on comfort, convenience, and exceptional results.
     </p>
 </section>
 
-<!-- WHY CHOOSE US -->
+<!-- WHY US -->
 <section>
     <h2>Why Choose Us?</h2>
     <ul>
@@ -205,5 +216,6 @@
 
 </body>
 </html>
+
 
 

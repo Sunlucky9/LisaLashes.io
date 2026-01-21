@@ -1,131 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Contact | Lisa’s Lashes</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Contact | Lisa’s Lashes</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            color: #333;
-            background-color: #fff;
-            line-height: 1.6;
-        }
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #fff;
+    line-height: 1.6;
+}
 
-       /* HEADER */
-        .site-header {
-            background-color: #f3a7c0;
-            padding: 20px 30px;
-            display: grid;
-            grid-template-columns: auto 1fr auto;
-            align-items: center;
-        }
+/* HEADER */
+.site-header {
+    background-color: #f3a7c0;
+    padding: 20px 30px;
+    display: grid;
+    grid-template-columns: 180px 1fr 180px; /* FIXED WIDTH */
+    align-items: center;
+}
 
-        /* Left logo */
-        .header-left img {
-            height: 140px;
-            width: auto;
-        }
+/* LEFT */
+.header-left {
+    width: 180px;
+    display: flex;
+    align-items: center;
+}
 
-        /* Center text (true center) */
-        .header-center {
-            text-align: center;
-            color: white;
-        }
+.header-left img {
+    height: 140px;
+    width: auto;
+}
 
-        .header-center h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
+/* CENTER */
+.header-center {
+    text-align: center;
+    color: white;
+}
 
-        .header-center p {
-            margin: 6px 0 0;
-            font-size: 1.1rem;
-        }
+.header-center h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
 
-        /* Right spacer */
-        .header-right {
-            width: 140px;
-        }
+.header-center p {
+    margin-top: 6px;
+    font-size: 1.1rem;
+}
 
-        /* NAV */
-        nav {
-            background-color: #e06a9d;
-            text-align: center;
-            padding: 15px;
-        }
+/* RIGHT SPACER */
+.header-right {
+    width: 180px;
+}
 
-        nav a {
-            color: white;
-            margin: 0 18px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+/* NAV */
+nav {
+    background-color: #e06a9d;
+    text-align: center;
+    padding: 15px;
+}
 
-        /* CONTACT SECTION */
-        section {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 0 20px;
-            text-align: center;
-        }
+nav a {
+    color: white;
+    margin: 0 18px;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-        section h2 {
-            color: #e06a9d;
-            margin-bottom: 20px;
-        }
+/* CONTACT SECTION */
+section {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 0 20px;
+    text-align: center;
+}
 
-        .contact-box {
-            background-color: #f9f9f9;
-            padding: 35px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
+section h2 {
+    color: #e06a9d;
+    margin-bottom: 20px;
+}
 
-        .contact-item {
-            margin: 20px 0;
-            font-size: 1.1rem;
-        }
+.contact-box {
+    background-color: #f9f9f9;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
 
-        .contact-item a {
-            color: #e06a9d;
-            text-decoration: none;
-            font-weight: bold;
-        }
+.contact-item {
+    margin: 22px 0;
+    font-size: 1.1rem;
+}
 
-        .contact-item a:hover {
-            text-decoration: underline;
-        }
+.contact-item a {
+    color: #e06a9d;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-        /* FOOTER */
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            font-size: 0.9rem;
-            margin-top: 50px;
-        }
+.contact-item a:hover {
+    text-decoration: underline;
+}
 
-        /* MOBILE */
-        @media (max-width: 700px) {
-            .site-header {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
+/* FOOTER */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    margin-top: 50px;
+}
 
-            .header-right {
-                display: none;
-            }
+/* MOBILE */
+@media (max-width: 700px) {
+    .site-header {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
 
-            .header-left img {
-                height: 110px;
-                margin-bottom: 10px;
-            }
-        }
-    </style>
+    .header-right {
+        display: none;
+    }
+
+    .header-left img {
+        height: 110px;
+        margin-bottom: 10px;
+    }
+}
+</style>
 </head>
 <body>
 
@@ -187,4 +193,5 @@
 
 </body>
 </html>
+
 

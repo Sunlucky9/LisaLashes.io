@@ -15,37 +15,40 @@ body {
 }
 
 /* HEADER */
-.site-header {
-    background-color: #f3a7c0;
-    padding: 20px 30px;
-    display: grid;
-    grid-template-columns: 160px 1fr 160px;
-    align-items: center;
-}
+        .site-header {
+            background-color: #f3a7c0;
+            padding: 20px 30px;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+        }
 
-.header-left img {
-    height: 140px;
-    width: auto;
-}
+        /* Left logo */
+        .header-left img {
+            height: 140px;
+            width: auto;
+        }
 
-.header-center {
-    text-align: center;
-    color: white;
-}
+        /* Center text (true center) */
+        .header-center {
+            text-align: center;
+            color: white;
+        }
 
-.header-center h1 {
-    margin: 0;
-    font-size: 2.5rem;
-}
+        .header-center h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
 
-.header-center p {
-    margin-top: 6px;
-    font-size: 1.1rem;
-}
+        .header-center p {
+            margin: 6px 0 0;
+            font-size: 1.1rem;
+        }
 
-.header-right {
-    width: 160px;
-}
+        /* Right spacer */
+        .header-right {
+            width: 140px;
+        }
 
 /* NAV */
 nav {

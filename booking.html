@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Our Services | Lisa’s Lashes</title>
+<title>My Bookings | Lisa’s Lashes</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -19,7 +19,7 @@ body {
     background-color: #f3a7c0;
     padding: 20px 30px;
     display: grid;
-    grid-template-columns: 160px 1fr 160px; /* balanced */
+    grid-template-columns: 160px 1fr 160px;
     align-items: center;
 }
 
@@ -44,7 +44,7 @@ body {
 }
 
 .header-right {
-    width: 160px; /* spacer to keep center aligned */
+    width: 160px;
 }
 
 /* NAV */
@@ -71,7 +71,7 @@ nav a {
     align-items: flex-start;
 }
 
-/* IMAGE COLUMN */
+/* IMAGE */
 .image-column {
     flex: 1;
     display: flex;
@@ -80,13 +80,13 @@ nav a {
 
 .image-column img {
     width: 100%;
-    max-width: 380px; /* fixed size for consistency */
+    max-width: 380px;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* SERVICES COLUMN */
+/* BOOKINGS COLUMN */
 .services-column {
     flex: 2;
 }
@@ -96,12 +96,7 @@ nav a {
     margin-bottom: 20px;
 }
 
-.services-column h3 {
-    margin-top: 30px;
-    color: #e06a9d;
-}
-
-/* SERVICE ROW */
+/* BOOKING ROW */
 .service-row {
     display: flex;
     justify-content: space-between;
@@ -110,24 +105,68 @@ nav a {
     border-bottom: 1px solid #ddd;
 }
 
-.service-row small {
-    display: block;
-    font-size: 0.85rem;
-    color: #666;
+.price-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-.book-btn {
-    margin-left: 15px;
-    padding: 6px 14px;
-    background-color: #e06a9d;
+.cancel-btn {
+    background-color: #f44336;
     color: white;
     border: none;
-    border-radius: 20px;
+    border-radius: 15px;
+    padding: 4px 12px;
     cursor: pointer;
     font-size: 0.85rem;
 }
 
-.book-btn:hover {
+.cancel-btn:hover {
+    background-color: #d32f2f;
+}
+
+/* TOTAL */
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-top: 15px;
+    font-size: 1.05rem;
+}
+
+/* FORM */
+.booking-form {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.booking-form label {
+    font-weight: bold;
+}
+
+.booking-form input,
+.booking-form select {
+    padding: 8px;
+    font-size: 0.95rem;
+    max-width: 320px;
+}
+
+/* PAY BUTTON */
+.pay-btn {
+    margin-top: 25px;
+    padding: 10px 28px;
+    background-color: #e06a9d;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    width: fit-content;
+}
+
+.pay-btn:hover {
     background-color: #c95685;
 }
 
@@ -160,15 +199,12 @@ footer {
         flex-direction: column;
         align-items: center;
     }
-
-    .image-column img {
-        max-width: 320px;
-    }
 }
 </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <header class="site-header">
     <div class="header-left">
         <img src="images/Picture1.png" alt="Lisa’s Lashes Logo">
@@ -182,6 +218,7 @@ footer {
     <div class="header-right"></div>
 </header>
 
+<!-- NAV -->
 <nav>
     <a href="index.html">Home</a>
     <a href="services.html">Our Services</a>
@@ -189,6 +226,7 @@ footer {
     <a href="contact.html">Contact</a>
 </nav>
 
+<!-- CONTENT -->
 <div class="content">
 
     <div class="image-column">
@@ -196,34 +234,25 @@ footer {
     </div>
 
     <div class="services-column">
+        <h2>My Bookings</h2>
 
-        <h2>Price List</h2>
+        <div id="bookings-list"></div>
 
-        <h3>Lash Extensions</h3>
-        <div class="service-row"><span>Classic</span><span>€50 <button class="book-btn" onclick="bookService('Classic',50)">Book</button></span></div>
-        <div class="service-row"><span>Hybrid</span><span>€55 <button class="book-btn" onclick="bookService('Hybrid',55)">Book</button></span></div>
-        <div class="service-row"><span>YY Lash</span><span>€55 <button class="book-btn" onclick="bookService('YY Lash',55)">Book</button></span></div>
-        <div class="service-row"><span>Angel Lash</span><span>€55 <button class="book-btn" onclick="bookService('Angel Lash',55)">Book</button></span></div>
-        <div class="service-row"><span>YY & Volume Mix</span><span>€60 <button class="book-btn" onclick="bookService('YY & Volume Mix',60)">Book</button></span></div>
-        <div class="service-row"><span>Light Volume</span><span>€60 <button class="book-btn" onclick="bookService('Light Volume',60)">Book</button></span></div>
-        <div class="service-row"><span>Volume</span><span>€65 <button class="book-btn" onclick="bookService('Volume',65)">Book</button></span></div>
+        <div class="booking-form">
+            <label>Select Date:</label>
+            <input type="date" id="date">
 
-        <h3>Lash Lift</h3>
-        <div class="service-row"><span>Lash Lift</span><span>€40 <button class="book-btn" onclick="bookService('Lash Lift',40)">Book</button></span></div>
-        <div class="service-row"><span>Lash Lift with Tint</span><span>€45 <button class="book-btn" onclick="bookService('Lash Lift with Tint',45)">Book</button></span></div>
+            <label>Select Time (Mon–Fri, 11am–7pm):</label>
+            <select id="time"></select>
 
-        <h3>Brows</h3>
-        <div class="service-row"><span>Brow Wax or Tint</span><span>€20 <button class="book-btn" onclick="bookService('Brow Wax or Tint',20)">Book</button></span></div>
-        <div class="service-row"><span>HD Brows</span><span>€40 <button class="book-btn" onclick="bookService('HD Brows',40)">Book</button></span></div>
-        <div class="service-row"><span>Brow Lamination</span><span>€45 <button class="book-btn" onclick="bookService('Brow Lamination',45)">Book</button></span></div>
-        <div class="service-row"><span>Brow Lamination with Tint</span><span>€50 <button class="book-btn" onclick="bookService('Brow Lamination with Tint',50)">Book</button></span></div>
+            <label>Your Location:</label>
+            <input type="text" id="location" placeholder="Enter your address">
 
-        <h3>Products</h3>
-        <div class="service-row">
-            <span>Lash Shampoo Set <small>Includes: Shampoo, Brush, Spoolies</small></span>
-            <span>€20 <button class="book-btn" onclick="bookService('Lash Shampoo Set',20)">Book</button></span>
+            <label>Phone Number:</label>
+            <input type="tel" id="phone" placeholder="Enter your phone number">
         </div>
 
+        <button class="pay-btn" onclick="payNow()">Pay</button>
     </div>
 </div>
 
@@ -232,15 +261,84 @@ footer {
 </footer>
 
 <script>
-function bookService(service, price) {
-    let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
-    bookings.push({ service, price });
-    localStorage.setItem("bookings", JSON.stringify(bookings));
-    alert(service + " added to bookings");
+function loadBookings() {
+    const list = document.getElementById("bookings-list");
+    const bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+
+    list.innerHTML = "";
+
+    if (bookings.length === 0) {
+        list.innerHTML = "<p>No services booked yet.</p>";
+        return;
+    }
+
+    let total = 0;
+
+    bookings.forEach((b, i) => {
+        total += b.price;
+
+        const row = document.createElement("div");
+        row.className = "service-row";
+        row.innerHTML = `
+            <span>${b.service}</span>
+            <div class="price-actions">
+                <span>€${b.price}</span>
+                <button class="cancel-btn" onclick="cancelService(${i})">Cancel</button>
+            </div>
+        `;
+        list.appendChild(row);
+    });
+
+    const totalRow = document.createElement("div");
+    totalRow.className = "total-row";
+    totalRow.innerHTML = `<span>Total</span><span>€${total}</span>`;
+    list.appendChild(totalRow);
 }
+
+function cancelService(index) {
+    let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+    bookings.splice(index, 1);
+    localStorage.setItem("bookings", JSON.stringify(bookings));
+    loadBookings();
+}
+
+function populateTimes() {
+    const select = document.getElementById("time");
+    for (let h = 11; h <= 19; h++) {
+        const opt = document.createElement("option");
+        opt.value = `${h}:00`;
+        opt.textContent = `${h}:00`;
+        select.appendChild(opt);
+    }
+}
+
+function payNow() {
+    const bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+    if (bookings.length === 0) {
+        alert("No services selected.");
+        return;
+    }
+
+    if (!date.value || !time.value || !location.value || !phone.value) {
+        alert("Please fill in all booking details.");
+        return;
+    }
+
+    const total = bookings.reduce((s,b)=>s+b.price,0);
+    alert(`Payment successful!\nTotal: €${total}`);
+
+    localStorage.removeItem("bookings");
+    loadBookings();
+}
+
+window.onload = function() {
+    populateTimes();
+    loadBookings();
+};
 </script>
 
 </body>
 </html>
+
 
 

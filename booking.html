@@ -6,232 +6,217 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        color: #333;
-        background-color: #fff;
-        line-height: 1.6;
-    }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
 
-    /* HEADER */
-    .site-header {
-        background-color: #f3a7c0;
-        padding: 20px 30px;
-        display: grid;
-        grid-template-columns: auto 1fr auto;
-        align-items: center;
-    }
+/* HEADER */
+.site-header {
+    background-color: #f3a7c0;
+    padding: 20px 30px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+}
 
-    .header-left img {
-        height: 140px;
-        width: auto;
-    }
+.header-left img {
+    height: 140px;
+}
 
-    .header-center {
-        text-align: center;
-        color: white;
-    }
+.header-center {
+    text-align: center;
+    color: white;
+}
 
-    .header-center h1 {
-        margin: 0;
-        font-size: 2.5rem;
-    }
+.header-center h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
 
-    .header-center p {
-        margin: 6px 0 0;
-        font-size: 1.1rem;
-    }
+.header-center p {
+    margin-top: 5px;
+}
 
-    .header-right { width: 140px; }
+.header-right { width: 140px; }
 
-    /* NAV */
-    nav {
-        background-color: #e06a9d;
-        text-align: center;
-        padding: 15px;
-    }
+/* NAV */
+nav {
+    background-color: #e06a9d;
+    text-align: center;
+    padding: 15px;
+}
 
-    nav a {
-        color: white;
-        margin: 0 18px;
-        text-decoration: none;
-        font-weight: bold;
-    }
+nav a {
+    color: white;
+    margin: 0 18px;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-    /* CONTENT */
+/* CONTENT */
+.content {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 0 20px;
+    display: flex;
+    gap: 40px;
+}
+
+.image-column {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.image-column img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.services-column {
+    flex: 2;
+}
+
+.services-column h2 {
+    color: #e06a9d;
+}
+
+/* BOOKINGS LIST */
+.service-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.price-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cancel-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cancel-btn:hover {
+    background-color: #d32f2f;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    padding-top: 15px;
+    font-size: 1.05rem;
+}
+
+/* FORM */
+.booking-form {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.booking-form label {
+    font-weight: bold;
+}
+
+.booking-form input,
+.booking-form select {
+    max-width: 300px;
+    padding: 6px;
+}
+
+.pay-btn {
+    margin-top: 20px;
+    background-color: #e06a9d;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    width: fit-content;
+}
+
+.pay-btn:hover {
+    background-color: #c95685;
+}
+
+/* FOOTER */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+/* MOBILE */
+@media (max-width: 800px) {
     .content {
-        max-width: 1100px;
-        margin: 50px auto;
-        padding: 0 20px;
-        display: flex;
-        gap: 40px;
-        align-items: flex-start;
-    }
-
-    .image-column {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-    }
-
-    .image-column img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .services-column {
-        flex: 2;
-    }
-
-    .services-column h2 {
-        color: #e06a9d;
-        margin-bottom: 20px;
-    }
-
-    .service-row {
-        display: flex;
-        justify-content: space-between;
-        padding: 10px 0;
-        border-bottom: 1px solid #ddd;
-        align-items: center;
-    }
-
-    .service-row small {
-        display: block;
-        font-size: 0.85rem;
-        color: #666;
-    }
-
-    .cancel-btn {
-        margin-left: 15px;
-        background-color: #f44336;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        padding: 4px 10px;
-        cursor: pointer;
-        font-size: 0.85rem;
-    }
-
-    .cancel-btn:hover {
-        background-color: #d32f2f;
-    }
-
-    .booking-form {
-        margin-top: 20px;
-        display: flex;
         flex-direction: column;
-        gap: 15px;
     }
-
-    .booking-form label {
-        font-weight: bold;
-    }
-
-    .booking-form input, .booking-form select {
-        padding: 6px;
-        font-size: 0.95rem;
-        width: 100%;
-        max-width: 300px;
-    }
-
-    .pay-btn {
-        margin-top: 20px;
-        padding: 10px 25px;
-        background-color: #e06a9d;
-        color: white;
-        border: none;
-        border-radius: 25px;
-        cursor: pointer;
-        font-size: 1rem;
-        width: fit-content;
-    }
-
-    .pay-btn:hover {
-        background-color: #c95685;
-    }
-
-    footer {
-        background-color: #333;
-        color: white;
+    .site-header {
+        grid-template-columns: 1fr;
         text-align: center;
-        padding: 20px;
-        font-size: 0.9rem;
-        margin-top: 40px;
     }
-
-    /* MOBILE */
-    @media (max-width: 800px) {
-        .site-header {
-            grid-template-columns: 1fr;
-            text-align: center;
-        }
-
-        .header-right { display: none; }
-
-        .header-left img {
-            height: 110px;
-            margin-bottom: 10px;
-        }
-
-        .content {
-            flex-direction: column;
-        }
-    }
+    .header-right { display: none; }
+}
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header class="site-header">
     <div class="header-left">
         <img src="images/Picture1.png" alt="Lisa’s Lashes Logo">
     </div>
-
     <div class="header-center">
         <h1>Lisa’s Lashes</h1>
         <p>Professional Mobile Beauty Services in Dublin</p>
     </div>
-
     <div class="header-right"></div>
 </header>
 
-<!-- NAV -->
 <nav>
     <a href="index.html">Home</a>
     <a href="services.html">Our Services</a>
-    <a href="booking.html">My Bookings</a>
     <a href="contact.html">Contact</a>
+    <a href="booking.html">My Bookings</a>
 </nav>
 
-<!-- CONTENT -->
 <div class="content">
 
-    <!-- LEFT IMAGE -->
     <div class="image-column">
         <img src="images/Insidevan.png" alt="Inside the mobile beauty van">
     </div>
 
-    <!-- SERVICES COLUMN -->
     <div class="services-column">
         <h2>My Bookings</h2>
         <div id="bookings-list"></div>
 
         <div class="booking-form">
-            <label for="booking-date">Select Date:</label>
-            <input type="date" id="booking-date" required>
+            <label>Date</label>
+            <input type="date" id="date">
 
-            <label for="booking-time">Select Time:</label>
-            <select id="booking-time" required></select>
+            <label>Time</label>
+            <select id="time"></select>
 
-            <label for="booking-location">Your Location:</label>
-            <input type="text" id="booking-location" placeholder="Enter your address" required>
+            <label>Your Location</label>
+            <input type="text" id="location" placeholder="Enter your address">
 
-            <label for="booking-phone">Phone Number:</label>
-            <input type="tel" id="booking-phone" placeholder="Enter your phone number" required>
+            <label>Phone Number</label>
+            <input type="tel" id="phone" placeholder="Enter phone number">
         </div>
 
         <button class="pay-btn" onclick="payNow()">Pay</button>
@@ -239,104 +224,91 @@
 
 </div>
 
-<!-- FOOTER -->
 <footer>
     © 2026 Lisa’s Lashes | Mobile Beauty Salon Dublin
 </footer>
 
 <script>
 function loadBookings() {
-    const bookingsList = document.getElementById('bookings-list');
+    const list = document.getElementById("bookings-list");
     let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+    list.innerHTML = "";
 
-    bookingsList.innerHTML = '';
-
-    if(bookings.length === 0){
-        bookingsList.innerHTML = "<p>No bookings yet.</p>";
+    if (bookings.length === 0) {
+        list.innerHTML = "<p>No bookings yet.</p>";
         return;
     }
 
     let total = 0;
 
-    bookings.forEach((b, index) => {
+    bookings.forEach((b, i) => {
         total += b.price;
-        const row = document.createElement('div');
-        row.className = 'service-row';
-        row.innerHTML = `<span>${b.service}</span><span>€${b.price}</span>
-                         <button class="cancel-btn" onclick="cancelService(${index})">Cancel</button>`;
-        bookingsList.appendChild(row);
+        const row = document.createElement("div");
+        row.className = "service-row";
+        row.innerHTML = `
+            <span>${b.service}</span>
+            <div class="price-actions">
+                <span>€${b.price}</span>
+                <button class="cancel-btn" onclick="cancelService(${i})">Cancel</button>
+            </div>
+        `;
+        list.appendChild(row);
     });
 
-    const totalDiv = document.createElement('div');
-    totalDiv.className = 'service-row';
-    totalDiv.style.fontWeight = 'bold';
-    totalDiv.innerHTML = `<span>Total</span><span>€${total}</span>`;
-    bookingsList.appendChild(totalDiv);
+    const totalRow = document.createElement("div");
+    totalRow.className = "total-row";
+    totalRow.innerHTML = `<span>Total</span><span>€${total}</span>`;
+    list.appendChild(totalRow);
 }
 
-function cancelService(index){
+function cancelService(index) {
     let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
-    bookings.splice(index,1);
+    bookings.splice(index, 1);
     localStorage.setItem("bookings", JSON.stringify(bookings));
     loadBookings();
 }
 
-function populateTimeOptions() {
-    const timeSelect = document.getElementById('booking-time');
-    const startHour = 11;
-    const endHour = 19;
-    for(let h = startHour; h <= endHour; h++) {
-        const option = document.createElement('option');
-        option.value = `${h}:00`;
-        option.textContent = `${h}:00`;
-        timeSelect.appendChild(option);
+function populateTimes() {
+    const timeSelect = document.getElementById("time");
+    for (let h = 11; h <= 19; h++) {
+        let opt = document.createElement("option");
+        opt.value = h + ":00";
+        opt.textContent = h + ":00";
+        timeSelect.appendChild(opt);
     }
 }
 
 function payNow() {
     let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
-    if(bookings.length === 0){
+    if (bookings.length === 0) {
         alert("No bookings to pay for.");
         return;
     }
 
-    const date = document.getElementById('booking-date').value;
-    const time = document.getElementById('booking-time').value;
-    const location = document.getElementById('booking-location').value.trim();
-    const phone = document.getElementById('booking-phone').value.trim();
+    const date = document.getElementById("date").value;
+    const time = document.getElementById("time").value;
+    const location = document.getElementById("location").value;
+    const phone = document.getElementById("phone").value;
 
-    if(!date || !time || !location || !phone){
-        alert("Please fill out all booking details before paying.");
+    if (!date || !time || !location || !phone) {
+        alert("Please complete all booking details.");
         return;
     }
 
-    bookings.forEach(b => {
-        b.date = date;
-        b.time = time;
-        b.location = location;
-        b.phone = phone;
-    });
-
-    localStorage.setItem("bookings", JSON.stringify(bookings));
-
-    const total = bookings.reduce((sum,b)=>sum+b.price,0);
-    alert(`Thank you! You have paid €${total}.\n` +
-          `Appointment on ${date} at ${time}\nLocation: ${location}\nPhone: ${phone}`);
+    const total = bookings.reduce((s, b) => s + b.price, 0);
+    alert(`Payment successful!\nTotal: €${total}\nDate: ${date} ${time}`);
 
     localStorage.removeItem("bookings");
     loadBookings();
-    document.getElementById('booking-date').value = '';
-    document.getElementById('booking-time').selectedIndex = 0;
-    document.getElementById('booking-location').value = '';
-    document.getElementById('booking-phone').value = '';
 }
 
-window.onload = function(){
-    populateTimeOptions();
+window.onload = function () {
+    populateTimes();
     loadBookings();
 };
 </script>
 
 </body>
 </html>
+
 

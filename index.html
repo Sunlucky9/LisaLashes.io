@@ -21,18 +21,20 @@
             display: grid;
             grid-template-columns: auto 1fr auto;
             align-items: center;
+            justify-content: center; /* center content */
         }
 
-        /* Left logo */
         .header-left img {
             height: 140px;
             width: auto;
         }
 
-        /* Center text (true center) */
         .header-center {
             text-align: center;
             color: white;
+            max-width: 1100px; /* same as Services page content */
+            width: 100%;
+            margin: 0 auto; /* center horizontally */
         }
 
         .header-center h1 {
@@ -45,7 +47,6 @@
             font-size: 1.1rem;
         }
 
-        /* Right spacer */
         .header-right {
             width: 140px;
         }
@@ -81,7 +82,7 @@
 
         /* SECTIONS */
         section {
-            max-width: 1000px;
+            max-width: 1100px; /* match header width */
             margin: auto;
             padding: 50px 20px;
             text-align: center;
@@ -217,6 +218,7 @@
 
 </body>
 </html>
+
 
 
 
